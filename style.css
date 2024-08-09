@@ -1,0 +1,396 @@
+:root {}
+
+* {
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 100%;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+/* body */
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 80vw;
+    padding: 2.5%;
+
+    border: 1rem solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+    position: relative;
+}
+
+.main__header {
+    text-align: center;
+    margin: 1rem;
+    /* kept in rem for better scaling */
+    font-size: 6rem;
+    /* kept in rem for better scaling */
+    font-family: "Sankofa Display", sans-serif;
+    z-index: 1;
+    /* Ensure content is above the pseudo-elements */
+    background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+    /* Colorful gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.main__info {
+    text-align: center;
+    margin: 1rem;
+    /* kept in rem for better scaling */
+    font-size: 2rem;
+    /* kept in rem for better scaling */
+    font-family: "Sankofa Display", sans-serif;
+    z-index: 1;
+    /* Ensure content is above the pseudo-elements */
+}
+
+.main__info div h1 {
+    background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+    /* Colorful gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.main__image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    position: relative;
+}
+
+/* Add keyframes for the growing and shrinking animation */
+@keyframes growAndShrinkImageLeft {
+    0% {
+        transform: translate(0, 0) scale(1);
+        z-index: 1;
+    }
+
+    25% {
+        transform: translate(-5vw, -20vh) scale(1);
+        z-index: 2;
+    }
+
+    50% {
+        transform: translate(-5vw, -20vh) scale(2);
+        z-index: 3;
+    }
+
+    75% {
+        transform: translate(-5vw, -20vh) scale(1);
+        z-index: 2;
+    }
+
+    100% {
+        transform: translate(0, 0) scale(1);
+        z-index: 1;
+    }
+}
+
+@keyframes growAndShrinkImageRight {
+    0% {
+        transform: translate(0, 0) scale(1);
+        z-index: 1;
+    }
+
+    25% {
+        transform: translate(5vw, -20vh) scale(1);
+        z-index: 2;
+    }
+
+    50% {
+        transform: translate(5vw, -20vh) scale(2);
+        z-index: 3;
+    }
+
+    75% {
+        transform: translate(5vw, -20vh) scale(1);
+        z-index: 2;
+    }
+
+    100% {
+        transform: translate(0, 0) scale(1);
+        z-index: 1;
+    }
+}
+
+
+/* Apply the animation to the first image */
+.main__image-1 {
+    width: 25%;
+    margin: 2.5%;
+    border: 1rem solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+    animation: growAndShrinkImageLeft 4s ease-in-out infinite;
+    /* Infinite animation loop */
+}
+
+/* Apply the animation to the second image, with a delay */
+.main__image-2 {
+    width: 25%;
+    margin: 2.5%;
+    border: 1rem solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+    animation: growAndShrinkImageRight 4s ease-in-out infinite;
+    animation-delay: 2s;
+    /* Start the animation halfway through the first image's cycle */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    body {
+        width: 90vw;
+        padding: 1.25%;
+        box-sizing: border-box;
+        border: 0.4rem solid;
+        border-image-slice: 1;
+        border-image-source: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+        position: relative;
+    }
+
+    .main__header {
+        font-size: 3rem;
+        margin: 0.5rem;
+    }
+
+    .main__info {
+        font-size: 1.5rem;
+        margin: 0.5rem;
+    }
+
+    .main__image-1,
+    .main__image-2 {
+        width: 37.5%;
+        box-sizing: border-box;
+        border: 0.4rem solid;
+        border-image-slice: 1;
+        border-image-source: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+    }
+
+    @keyframes growAndShrinkImageLeft {
+        0% {
+            transform: translate(0, 0) scale(1);
+            z-index: 1;
+        }
+
+        25% {
+            transform: translate(-2vw, -15vh) scale(1);
+            z-index: 2;
+        }
+
+        50% {
+            transform: translate(-2vw, -15vh) scale(1.6);
+            z-index: 3;
+        }
+
+        75% {
+            transform: translate(-2vw, -15vh) scale();
+            z-index: 2;
+        }
+
+        100% {
+            transform: translate(0, 0) scale(1);
+            z-index: 1;
+        }
+    }
+
+    @keyframes growAndShrinkImageRight {
+        0% {
+            transform: translate(0, 0) scale(1);
+            z-index: 1;
+        }
+
+        25% {
+            transform: translate(2vw, -15vh) scale(1);
+            z-index: 2;
+        }
+
+        50% {
+            transform: translate(2vw, -15vh) scale(1.6);
+            z-index: 3;
+        }
+
+        75% {
+            transform: translate(2vw, -15vh) scale(1);
+            z-index: 2;
+        }
+
+        100% {
+            transform: translate(0, 0) scale(1);
+            z-index: 1;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        width: 95vw;
+        padding: 0.625%;
+        box-sizing: border-box;
+        border: 0.1rem solid;
+        border-image-slice: 1;
+        border-image-source: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+        position: relative;
+    }
+
+    .main__header {
+        font-size: 2rem;
+        margin: 0.25rem;
+    }
+
+    .main__info {
+        font-size: 1rem;
+        margin: 0.25rem;
+    }
+
+    .main__image-1,
+    .main__image-2 {
+        width: 40%;
+        box-sizing: border-box;
+        border: 0.1rem solid;
+        border-image-slice: 1;
+        border-image-source: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+
+    }
+
+    @keyframes growAndShrinkImageLeft {
+        0% {
+            transform: translate(0, 0) scale(1);
+            z-index: 1;
+        }
+
+        25% {
+            transform: translate(-1vw, -10vh) scale(1);
+            z-index: 2;
+        }
+
+        50% {
+            transform: translate(-1vw, -10vh) scale(1.4);
+            z-index: 3;
+        }
+
+        75% {
+            transform: translate(-1vw, -10vh) scale(1);
+            z-index: 2;
+        }
+
+        100% {
+            transform: translate(0, 0) scale(1);
+            z-index: 1;
+        }
+    }
+
+    @keyframes growAndShrinkImageRight {
+        0% {
+            transform: translate(0, 0) scale(1);
+            z-index: 1;
+        }
+
+        25% {
+            transform: translate(1vw, -10vh) scale(1);
+            z-index: 2;
+        }
+
+        50% {
+            transform: translate(1vw, -10vh) scale(1.4);
+            z-index: 3;
+        }
+
+        75% {
+            transform: translate(1vw, -10vh) scale(1);
+            z-index: 2;
+        }
+
+        100% {
+            transform: translate(0, 0) scale(1);
+            z-index: 1;
+        }
+    }
+}
+
+/* animation */
+/* Define keyframes for other animations */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounceIn {
+
+    0%,
+    20%,
+    40%,
+    60%,
+    80%,
+    100% {
+        -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    0% {
+        opacity: 0;
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+
+    20% {
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+
+    40% {
+        transform: scale3d(0.9, 0.9, 0.9);
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale3d(1.03, 1.03, 1.03);
+    }
+
+    80% {
+        transform: scale3d(0.97, 0.97, 0.97);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        opacity: 0;
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Apply animations to elements */
+.main__info-time-text {
+    animation: fadeInUp 2s ease-out;
+}
+
+.main__info-name-text {
+    animation: bounceIn 2s ease-out;
+}
+
+.main__info-item-text {
+    animation: zoomIn 2s ease-out;
+}
